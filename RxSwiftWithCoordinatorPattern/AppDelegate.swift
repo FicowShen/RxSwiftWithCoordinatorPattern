@@ -1,21 +1,20 @@
-//
-//  AppDelegate.swift
-//  RxSwiftWithCoordinatorPattern
-//
-//  Created by fshen on 2019/3/14.
-//  Copyright © 2019 fshen. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private var appCoordinator: AppCoordinator?  // 1
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let appCoordinator = AppCoordinator(window: window) // 2
+
+        self.window = window
+        self.appCoordinator = appCoordinator
+
+        appCoordinator.start()  // 3
         return true
     }
 
