@@ -28,6 +28,8 @@
 		89A3018A223BA7610099A796 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30189223BA7610099A796 /* LoginViewModel.swift */; };
 		89A3018C223BAE3E0099A796 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3018B223BAE3E0099A796 /* Protocols.swift */; };
 		89A3018F223BAEB30099A796 /* GithubDefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3018E223BAEB30099A796 /* GithubDefaultAPI.swift */; };
+		89A30192223BB7FF0099A796 /* WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30191223BB7FF0099A796 /* WireFrame.swift */; };
+		89A30194223BBB3C0099A796 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30193223BBB3C0099A796 /* ActivityIndicator.swift */; };
 		C680D8ACCB0103034C8B2C59 /* Pods_RxSwiftWithCoordinatorPatternTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5733B2358BD9AE7C558A626 /* Pods_RxSwiftWithCoordinatorPatternTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		89A30189223BA7610099A796 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		89A3018B223BAE3E0099A796 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		89A3018E223BAEB30099A796 /* GithubDefaultAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubDefaultAPI.swift; sourceTree = "<group>"; };
+		89A30191223BB7FF0099A796 /* WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
+		89A30193223BBB3C0099A796 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		C5733B2358BD9AE7C558A626 /* Pods_RxSwiftWithCoordinatorPatternTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPatternTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB8C943FBD5273D777DC251 /* Pods_RxSwiftWithCoordinatorPatternUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPatternUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E966E4566A156792AF71D729 /* Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithCoordinatorPatternTests/Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 		8944F91F223A6905008B58FF /* RxSwiftWithCoordinatorPattern */ = {
 			isa = PBXGroup;
 			children = (
+				89A30190223BB7EE0099A796 /* Service */,
 				89A3018D223BAE970099A796 /* API */,
 				89A30188223BA71F0099A796 /* SignUp */,
 				89A30187223BA7190099A796 /* Login */,
@@ -237,6 +242,15 @@
 				89A3018E223BAEB30099A796 /* GithubDefaultAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		89A30190223BB7EE0099A796 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				89A30191223BB7FF0099A796 /* WireFrame.swift */,
+				89A30193223BBB3C0099A796 /* ActivityIndicator.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		93D023757B8E251E848D8CD2 /* Frameworks */ = {
@@ -489,7 +503,9 @@
 				89A30181223B54970099A796 /* SignUpCoordinator.swift in Sources */,
 				8944F954223A69EB008B58FF /* DashboardViewController.swift in Sources */,
 				89A3018A223BA7610099A796 /* LoginViewModel.swift in Sources */,
+				89A30192223BB7FF0099A796 /* WireFrame.swift in Sources */,
 				89A3018C223BAE3E0099A796 /* Protocols.swift in Sources */,
+				89A30194223BBB3C0099A796 /* ActivityIndicator.swift in Sources */,
 				89A30179223B4E840099A796 /* LoginCoordinator.swift in Sources */,
 				89A30185223B70AF0099A796 /* Extensions.swift in Sources */,
 				8944F921223A6905008B58FF /* AppDelegate.swift in Sources */,
