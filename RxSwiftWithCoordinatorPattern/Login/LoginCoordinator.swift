@@ -2,14 +2,13 @@ import UIKit
 import RxSwift
 
 final class LoginCoordinator: RootViewCoordinator {
-
     var rootViewController: UIViewController {
         return presenter
     }
 
     var childCoordinators: [Coordinator] = []
 
-    let displayCompletion = PublishSubject<Void>()
+    let showDashboard = PublishSubject<Void>()
 
     private let presenter: UINavigationController
     private var subPresenter: UINavigationController!
@@ -22,29 +21,35 @@ final class LoginCoordinator: RootViewCoordinator {
     func start() {
         let loginPage = LoginViewController.loadFromMainStoryboard() as! LoginViewController
         loginPage.showDashboard.subscribe { [weak self] in
-            self?.showDashboard()
+            self?.showDashboardPage()
             }.disposed(by: disposeBag)
-        loginPage.showSignUp.subscribe { [weak self] in
+        loginPage.showSignUp.subscribe { [weak self] (_) in
             self?.showSignUpPage()
             }.disposed(by: disposeBag)
+
         subPresenter = UINavigationController(rootViewController: loginPage)
         presenter.present(subPresenter, animated: true, completion: nil)
     }
 
-    private func showDashboard() {
+    private func showDashboardPage() {
         self.subPresenter.dismiss(animated: true, completion: nil)
         subPresenter = nil
         childCoordinators.removeAll()
-        displayCompletion.onCompleted()
+        showDashboard.onCompleted()
     }
 
     private func showSignUpPage() {
         let coordinator = SignUpCoordinator(presenter: self.subPresenter)
-        coordinator.displayCompletion.subscribe { [weak self] in
-            self?.childCoordinators.removeAll()
-        }.disposed(by: disposeBag)
-        coordinator.start()
+        coordinator.showLoginPage.subscribe { [weak self] in
+            self?.showLoginPage()
+            }.disposed(by: disposeBag)
         self.childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+
+    private func showLoginPage() {
+        self.subPresenter.popViewController(animated: true)
+        childCoordinators.removeAll()
     }
 
 }

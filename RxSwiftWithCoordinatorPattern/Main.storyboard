@@ -18,20 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5B1-dA-dIT">
-                                <rect key="frame" x="145.5" y="323" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="54D-YL-n5L">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C8-S2-EWD">
+                                <rect key="frame" x="141.5" y="599" width="92" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="dw5-TK-sgr"/>
+                                    <constraint firstAttribute="height" constant="36" id="khi-os-ntZ"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5B1-dA-dIT" firstAttribute="centerY" secondItem="e3W-EY-9l2" secondAttribute="centerY" id="EpU-yd-zdz"/>
-                            <constraint firstItem="5B1-dA-dIT" firstAttribute="centerX" secondItem="e3W-EY-9l2" secondAttribute="centerX" id="sAe-25-5t7"/>
+                            <constraint firstItem="G7L-Ug-lI7" firstAttribute="bottom" secondItem="54D-YL-n5L" secondAttribute="bottom" id="08U-8R-NCk"/>
+                            <constraint firstItem="54D-YL-n5L" firstAttribute="top" secondItem="G7L-Ug-lI7" secondAttribute="top" id="3VV-9i-sxC"/>
+                            <constraint firstItem="54D-YL-n5L" firstAttribute="leading" secondItem="G7L-Ug-lI7" secondAttribute="leading" id="4aO-cX-4Qz"/>
+                            <constraint firstItem="G7L-Ug-lI7" firstAttribute="trailing" secondItem="54D-YL-n5L" secondAttribute="trailing" id="KjN-vr-xWE"/>
+                            <constraint firstItem="G7L-Ug-lI7" firstAttribute="bottom" secondItem="5C8-S2-EWD" secondAttribute="bottom" constant="32" id="Ksv-UF-e61"/>
+                            <constraint firstItem="5C8-S2-EWD" firstAttribute="centerX" secondItem="e3W-EY-9l2" secondAttribute="centerX" id="eCB-kD-wkn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G7L-Ug-lI7"/>
                     </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="5C8-S2-EWD" id="6IO-qF-LMB"/>
+                        <outlet property="tableView" destination="54D-YL-n5L" id="9yC-Wb-Zrd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgq-aN-Ox7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

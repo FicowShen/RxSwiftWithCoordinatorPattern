@@ -21,36 +21,11 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        signInButton.rx.tap
-//            .subscribe { [weak self] _ in
-//                self?.showDashboard.onCompleted()
-//            }
-//            .disposed(by: disposeBag)
-//
-//        showSignUpButton.rx.tap
-//            .subscribe { [weak self] _ in
-//                self?.showSignUp.onCompleted()
-//            }
-//            .disposed(by: disposeBag)
-//
-//        let usernameValid = accountInput.rx.text.orEmpty
-//            .map { $0.count >= MinimumLength.account }
-//            .share(replay: 1) // without this map would be executed once for each binding, rx is stateless by default
-//
-//        let passwordValid = passwordInput.rx.text.orEmpty
-//            .map { $0.count >= MinimumLength.password }
-//            .share(replay: 1)
-//
-//        let everythingValid = Observable.combineLatest(usernameValid, passwordValid) { $0 && $1 }
-//            .share(replay: 1)
-//
-//        usernameValid
-//            .bind(to: passwordInput.rx.isEnabled)
-//            .disposed(by: disposeBag)
-//
-//        everythingValid
-//            .bind(to: signInButton.rx.isEnabledStyle)
-//            .disposed(by: disposeBag)
+        showSignUpButton.rx.tap
+            .subscribe { [weak self] _ in
+                self?.showSignUp.onNext(())
+            }
+            .disposed(by: disposeBag)
 
         let viewModel = LoginViewModel(
             input: (
@@ -72,21 +47,10 @@ class LoginViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-//        viewModel.validatedUsername
-//            .drive(accountInput.rx.validationResult)
-//            .disposed(by: disposeBag)
-//
-//        viewModel.validatedPassword
-//            .drive(passwordInput.rx.validationResult)
-//            .disposed(by: disposeBag)
-//
-//        viewModel.signingIn
-//            .drive(signInButton.rx.isAnimating)
-//            .disposed(by: disposeBag)
-
         viewModel.signedIn
-            .drive(onNext: { signedIn in
+            .drive(onNext: { [weak self] signedIn in
                 print("User signed in \(signedIn)")
+                self?.showDashboard.onCompleted()
             })
             .disposed(by: disposeBag)
 

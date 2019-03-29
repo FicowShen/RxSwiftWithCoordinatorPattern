@@ -9,7 +9,7 @@ final class SignUpCoordinator: RootViewCoordinator {
 
     var childCoordinators: [Coordinator] = []
 
-    var displayCompletion = PublishSubject<Void>()
+    let showLoginPage = PublishSubject<Void>()
 
     private let presenter: UINavigationController
     private let disposeBag = DisposeBag()
@@ -21,14 +21,9 @@ final class SignUpCoordinator: RootViewCoordinator {
     func start() {
         let signUpPage = SignUpViewController.loadFromMainStoryboard() as! SignUpViewController
         signUpPage.showLoginPage.subscribe { [weak self] in
-            self?.showLoginPage()
+            self?.showLoginPage.onCompleted()
             }.disposed(by: disposeBag)
         presenter.pushViewController(signUpPage, animated: true)
-    }
-
-    func showLoginPage() {
-        self.presenter.popViewController(animated: true)
-        displayCompletion.onCompleted()
     }
 
 }

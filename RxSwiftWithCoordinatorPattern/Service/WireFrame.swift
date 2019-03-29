@@ -29,31 +29,25 @@ class DefaultWireframe: Wireframe {
     }
 
     #if os(iOS)
-    private static func topMostViewController(_ rootViewController: UIViewController? = nil) -> UIViewController {
-        let viewController: UIViewController
-        if let vc = rootViewController {
-            viewController = vc
-        } else {
-            viewController = UIApplication.shared.delegate!.window!!.rootViewController!
+    private static func topMostViewController(_ rootViewController: UIViewController = UIApplication.shared.delegate!.window!!.rootViewController!) -> UIViewController {
+
+        if let presented = rootViewController.presentedViewController {
+            return topMostViewController(presented)
         }
 
-        if let presenting = viewController.presentingViewController {
-            return topMostViewController(presenting)
-        }
-
-        switch viewController {
-        case let vc as UINavigationController:
-            if let top = vc.topViewController {
-                return topMostViewController(top)
+        switch rootViewController {
+        case let navigationController as UINavigationController:
+            if let topViewController = navigationController.topViewController {
+                return topMostViewController(topViewController)
             }
-        case let vc as UITabBarController:
-            if let selected = vc.selectedViewController {
-                return topMostViewController(selected)
+        case let tabBarController as UITabBarController:
+            if let selectedViewController = tabBarController.selectedViewController {
+                return topMostViewController(selectedViewController)
             }
         default:
             break
         }
-        return viewController
+        return rootViewController
     }
     #endif
 

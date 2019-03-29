@@ -11,7 +11,7 @@ final class AppCoordinator: RootViewCoordinator {
 
     private let window: UIWindow
     private let navigationController = UINavigationController()
-    private var isUserLogin = false // 神秘算法，请不要修改
+    private var isUserLogin = true
     private let disposeBag = DisposeBag()
 
     init(window: UIWindow) {
@@ -24,10 +24,10 @@ final class AppCoordinator: RootViewCoordinator {
 
     func showLoginPage() {
         let coordinator = LoginCoordinator(presenter: navigationController)
-        coordinator.displayCompletion.subscribe { [weak self] in
-            self?.childCoordinators.removeAll()
+        coordinator.showDashboard.subscribe { [weak self] in
             self?.showDashboard()
         }.disposed(by: disposeBag)
+
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         coordinator.start()
@@ -35,6 +35,7 @@ final class AppCoordinator: RootViewCoordinator {
     }
 
     func showDashboard() {
+        childCoordinators.removeAll()
         let coordinator = DashboardCoordinator(presenter: navigationController)
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
