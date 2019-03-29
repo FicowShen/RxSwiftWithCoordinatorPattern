@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20588467F4ACA00429484565 /* Pods_RxSwiftWithCoordinatorPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B293DE98BB4D8A3617ADAF /* Pods_RxSwiftWithCoordinatorPattern.framework */; };
 		81836A7667E4FB77AE935488 /* Pods_RxSwiftWithCoordinatorPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB8C943FBD5273D777DC251 /* Pods_RxSwiftWithCoordinatorPatternUITests.framework */; };
+		892D8401224E2BB00019FFE6 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D8400224E2BB00019FFE6 /* DashboardViewModel.swift */; };
 		89311719223FAC7B00E362F9 /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89311718223FAC7B00E362F9 /* DashboardModels.swift */; };
 		8944F921223A6905008B58FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944F920223A6905008B58FF /* AppDelegate.swift */; };
 		8944F928223A6907008B58FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8944F927223A6907008B58FF /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		2EE1DED2D54E97DBFB222955 /* Pods-RxSwiftWithCoordinatorPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithCoordinatorPattern.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithCoordinatorPattern/Pods-RxSwiftWithCoordinatorPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		57B293DE98BB4D8A3617ADAF /* Pods_RxSwiftWithCoordinatorPattern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPattern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EFA75296464139F16E4ACD /* Pods-RxSwiftWithCoordinatorPatternUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithCoordinatorPatternUITests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithCoordinatorPatternUITests/Pods-RxSwiftWithCoordinatorPatternUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		892D8400224E2BB00019FFE6 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		89311718223FAC7B00E362F9 /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
 		8944F91D223A6905008B58FF /* RxSwiftWithCoordinatorPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftWithCoordinatorPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8944F920223A6905008B58FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				8944F953223A69EB008B58FF /* DashboardViewController.swift */,
 				89A3017A223B4EA30099A796 /* DashboardCoordinator.swift */,
 				89311718223FAC7B00E362F9 /* DashboardModels.swift */,
+				892D8400224E2BB00019FFE6 /* DashboardViewModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				8944F954223A69EB008B58FF /* DashboardViewController.swift in Sources */,
 				89902590224B6DB400D0412E /* UI+SectionedViewType.swift in Sources */,
 				8990259A224B6DB400D0412E /* SectionModel.swift in Sources */,
+				892D8401224E2BB00019FFE6 /* DashboardViewModel.swift in Sources */,
 				89902599224B6DB400D0412E /* IdentifiableType.swift in Sources */,
 				897BBB6C224CCFE200649A4D /* DashboardEventTableViewCell.swift in Sources */,
 				89902589224B6DB400D0412E /* RxTableViewSectionedAnimatedDataSource.swift in Sources */,
