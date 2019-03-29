@@ -5,6 +5,26 @@ struct DashboardViewModel {
 
     let items: Observable<[SectionModel<String, DashboardModel>]>
 
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, DashboardModel>>(
+        configureCell: { (_, tv, indexPath, element) in
+            switch element {
+            case let user as DashboardUserModel:
+                let cell = tv.dequeueReusableCell(withIdentifier: DashboardUserTableViewCell.ID) as! DashboardUserTableViewCell
+                cell.model = user
+                return cell
+            case let event as DashboardEventModel:
+                let cell = tv.dequeueReusableCell(withIdentifier: DashboardEventTableViewCell.ID) as! DashboardEventTableViewCell
+                cell.model = event
+                return cell
+            default:
+                fatalError()
+            }
+    },
+        titleForHeaderInSection: { dataSource, sectionIndex in
+            return dataSource[sectionIndex].model
+    }
+    )
+
     init() {
         let userInfo = SectionModel(model: "User Info", items: [
             DashboardUserModel(firstName: "Ficow", lastName: "Shen", gender: .male) as DashboardModel])

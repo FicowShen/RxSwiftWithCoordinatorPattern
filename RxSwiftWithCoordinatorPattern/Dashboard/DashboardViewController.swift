@@ -9,26 +9,6 @@ class DashboardViewController: BaseViewController, UITableViewDelegate {
 
     let showLoginPage = PublishSubject<Void>()
 
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, DashboardModel>>(
-        configureCell: { (_, tv, indexPath, element) in
-            switch element {
-            case let user as DashboardUserModel:
-                let cell = tv.dequeueReusableCell(withIdentifier: DashboardUserTableViewCell.ID) as! DashboardUserTableViewCell
-                cell.model = user
-                return cell
-            case let event as DashboardEventModel:
-                let cell = tv.dequeueReusableCell(withIdentifier: DashboardEventTableViewCell.ID) as! DashboardEventTableViewCell
-                cell.model = event
-                return cell
-            default:
-                fatalError()
-            }
-    },
-        titleForHeaderInSection: { dataSource, sectionIndex in
-            return dataSource[sectionIndex].model
-    }
-    )
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,9 +23,10 @@ class DashboardViewController: BaseViewController, UITableViewDelegate {
                                  bundle: nil),
                            forCellReuseIdentifier: DashboardEventTableViewCell.ID)
 
-        let dataSource = self.dataSource
+        let viewModel = DashboardViewModel()
+        let dataSource = viewModel.dataSource
 
-        DashboardViewModel().items
+        viewModel.items
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
