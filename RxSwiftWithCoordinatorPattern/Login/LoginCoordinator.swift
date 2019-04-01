@@ -11,7 +11,7 @@ final class LoginCoordinator: RootViewCoordinator {
     let showDashboard = PublishSubject<Void>()
 
     private let presenter: UINavigationController
-    private var subPresenter: UINavigationController!
+    private var loginPresenter: UINavigationController!
     private let disposeBag = DisposeBag()
 
     init(presenter: UINavigationController) {
@@ -27,19 +27,19 @@ final class LoginCoordinator: RootViewCoordinator {
             self?.showSignUpPage()
             }.disposed(by: disposeBag)
 
-        subPresenter = UINavigationController(rootViewController: loginPage)
-        presenter.present(subPresenter, animated: true, completion: nil)
+        loginPresenter = UINavigationController(rootViewController: loginPage)
+        presenter.present(loginPresenter, animated: true, completion: nil)
     }
 
     private func showDashboardPage() {
-        self.subPresenter.dismiss(animated: true, completion: nil)
-        subPresenter = nil
+        self.loginPresenter.dismiss(animated: true, completion: nil)
+        loginPresenter = nil
         childCoordinators.removeAll()
         showDashboard.onCompleted()
     }
 
     private func showSignUpPage() {
-        let coordinator = SignUpCoordinator(presenter: self.subPresenter)
+        let coordinator = SignUpCoordinator(presenter: self.loginPresenter)
         coordinator.showLoginPage.subscribe { [weak self] in
             self?.showLoginPage()
             }.disposed(by: disposeBag)
@@ -48,7 +48,7 @@ final class LoginCoordinator: RootViewCoordinator {
     }
 
     private func showLoginPage() {
-        self.subPresenter.popViewController(animated: true)
+        self.loginPresenter.popViewController(animated: true)
         childCoordinators.removeAll()
     }
 

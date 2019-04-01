@@ -4,18 +4,9 @@ class DashboardModel {}
 
 class DashboardUserModel: DashboardModel {
 
-    enum Gender {
+    enum Gender: String {
         case male
         case female
-
-        var string: String {
-            switch self {
-            case .male:
-                return "男"
-            case .female:
-                return "女"
-            }
-        }
 
         var color: UIColor {
             switch self {
@@ -39,21 +30,10 @@ class DashboardUserModel: DashboardModel {
     }
 }
 
-enum EventPriority {
+enum EventPriority: String {
     case low
     case normal
     case high
-
-    var string: String {
-        switch self {
-        case .low:
-            return "低"
-        case .normal:
-            return "中"
-        case .high:
-            return "高"
-        }
-    }
 
     var color: UIColor {
         switch self {

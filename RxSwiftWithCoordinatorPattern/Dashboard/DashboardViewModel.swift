@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-struct DashboardViewModel {
+class DashboardViewModel {
 
     let items: Observable<[SectionModel<String, DashboardModel>]>
 

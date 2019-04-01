@@ -16,11 +16,9 @@ class DashboardViewController: BaseViewController, UITableViewDelegate {
 
         tableView.tableFooterView = UIView()
 
-        tableView.register(UINib(nibName: DashboardUserTableViewCell.ID,
-                                 bundle: nil),
+        tableView.register(UINib(nibName: DashboardUserTableViewCell.ID, bundle: nil),
                            forCellReuseIdentifier: DashboardUserTableViewCell.ID)
-        tableView.register(UINib(nibName: DashboardEventTableViewCell.ID,
-                                 bundle: nil),
+        tableView.register(UINib(nibName: DashboardEventTableViewCell.ID, bundle: nil),
                            forCellReuseIdentifier: DashboardEventTableViewCell.ID)
 
         let viewModel = DashboardViewModel()

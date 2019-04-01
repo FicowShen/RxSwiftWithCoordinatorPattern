@@ -21,7 +21,7 @@ class DashboardUserTableViewCell: UITableViewCell {
             guard let m = model else { return }
             firstNameLabel.text = m.firstName
             lastNameLabel.text = m.lastName
-            genderLabel.text = m.gender.string
+            genderLabel.text = m.gender.rawValue
             genderLabel.textColor = m.gender.color
         }
     }

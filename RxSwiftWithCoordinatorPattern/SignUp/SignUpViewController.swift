@@ -17,12 +17,19 @@ class SignUpViewController: BaseViewController {
 
     let showLoginPage = PublishSubject<Void>()
 
+    private let viewModel = SignUpViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         showLoginPageButton.rx.tap
             .subscribe { [weak self] _ in
                 self?.showLoginPage.onCompleted()
+            }
+            .disposed(by: disposeBag)
+        signUpButton.rx.tap
+            .subscribe { [weak self] _ in
+                self?.signUp()
             }
             .disposed(by: disposeBag)
 
@@ -44,6 +51,32 @@ class SignUpViewController: BaseViewController {
         everythingValid
             .bind(to: signUpButton.rx.isEnabledStyle)
             .disposed(by: disposeBag)
+
+        let tapBackground = UITapGestureRecognizer()
+        tapBackground.rx.event
+            .subscribe(onNext: { [weak self] _ in
+                self?.view.endEditing(true)
+            })
+            .disposed(by: disposeBag)
+        view.addGestureRecognizer(tapBackground)
+    }
+
+    private func signUp() {
+        ToastView.shared.show()
+
+        viewModel.signUp(account: accountInput.text, password: passwordInput.text)
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] (message) in
+                ToastView.shared.hide()
+                UIViewController.showAlert(msg: message)
+                delay(seconds: TimeInterval(Constants.AlertDisplayDuration), block: {
+                    self?.showLoginPage.onCompleted()
+                })
+            }) { (error) in
+                ToastView.shared.hide()
+                UIViewController.showAlert(msg: error.localizedDescription)
+        }.disposed(by: disposeBag)
     }
 
 }

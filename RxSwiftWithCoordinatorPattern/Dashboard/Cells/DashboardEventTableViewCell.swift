@@ -16,7 +16,7 @@ class DashboardEventTableViewCell: UITableViewCell {
         didSet {
             guard let m = model else { return }
             nameLabel.text = m.name
-            priorityLabel.text = m.priority.string
+            priorityLabel.text = m.priority.rawValue
             priorityLabel.textColor = m.priority.color
             timeLabel.text = m.time
         }

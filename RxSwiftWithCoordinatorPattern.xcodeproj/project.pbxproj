@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		20588467F4ACA00429484565 /* Pods_RxSwiftWithCoordinatorPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B293DE98BB4D8A3617ADAF /* Pods_RxSwiftWithCoordinatorPattern.framework */; };
 		81836A7667E4FB77AE935488 /* Pods_RxSwiftWithCoordinatorPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB8C943FBD5273D777DC251 /* Pods_RxSwiftWithCoordinatorPatternUITests.framework */; };
+		89228C56225209AC00A26FD1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C55225209AC00A26FD1 /* SignUpViewModel.swift */; };
+		89228C5A225216E000A26FD1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C59225216E000A26FD1 /* Constants.swift */; };
+		89228C5C2252190E00A26FD1 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C5B2252190E00A26FD1 /* Tools.swift */; };
+		89228C5F22521C7C00A26FD1 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C5E22521C7C00A26FD1 /* ToastView.swift */; };
+		89228C6122521C8200A26FD1 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89228C6022521C8200A26FD1 /* ToastView.xib */; };
+		89228C68225228E200A26FD1 /* GithubDefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C67225228E200A26FD1 /* GithubDefaultAPI.swift */; };
+		89228C6C225228E800A26FD1 /* WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C6A225228E800A26FD1 /* WireFrame.swift */; };
+		89228C6D225228E800A26FD1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C6B225228E800A26FD1 /* ActivityIndicator.swift */; };
+		89228C6F2252290F00A26FD1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89228C6E2252290F00A26FD1 /* Protocols.swift */; };
 		892D8401224E2BB00019FFE6 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D8400224E2BB00019FFE6 /* DashboardViewModel.swift */; };
 		89311719223FAC7B00E362F9 /* DashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89311718223FAC7B00E362F9 /* DashboardModels.swift */; };
 		8944F921223A6905008B58FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944F920223A6905008B58FF /* AppDelegate.swift */; };
@@ -60,10 +69,6 @@
 		89A30181223B54970099A796 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30180223B54970099A796 /* SignUpCoordinator.swift */; };
 		89A30185223B70AF0099A796 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30184223B70AF0099A796 /* Extensions.swift */; };
 		89A3018A223BA7610099A796 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30189223BA7610099A796 /* LoginViewModel.swift */; };
-		89A3018C223BAE3E0099A796 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3018B223BAE3E0099A796 /* Protocols.swift */; };
-		89A3018F223BAEB30099A796 /* GithubDefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3018E223BAEB30099A796 /* GithubDefaultAPI.swift */; };
-		89A30192223BB7FF0099A796 /* WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30191223BB7FF0099A796 /* WireFrame.swift */; };
-		89A30194223BBB3C0099A796 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30193223BBB3C0099A796 /* ActivityIndicator.swift */; };
 		C680D8ACCB0103034C8B2C59 /* Pods_RxSwiftWithCoordinatorPatternTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5733B2358BD9AE7C558A626 /* Pods_RxSwiftWithCoordinatorPatternTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +94,15 @@
 		2EE1DED2D54E97DBFB222955 /* Pods-RxSwiftWithCoordinatorPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithCoordinatorPattern.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithCoordinatorPattern/Pods-RxSwiftWithCoordinatorPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		57B293DE98BB4D8A3617ADAF /* Pods_RxSwiftWithCoordinatorPattern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPattern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EFA75296464139F16E4ACD /* Pods-RxSwiftWithCoordinatorPatternUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithCoordinatorPatternUITests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithCoordinatorPatternUITests/Pods-RxSwiftWithCoordinatorPatternUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		89228C55225209AC00A26FD1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		89228C59225216E000A26FD1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		89228C5B2252190E00A26FD1 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		89228C5E22521C7C00A26FD1 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		89228C6022521C8200A26FD1 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		89228C67225228E200A26FD1 /* GithubDefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubDefaultAPI.swift; sourceTree = "<group>"; };
+		89228C6A225228E800A26FD1 /* WireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
+		89228C6B225228E800A26FD1 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		89228C6E2252290F00A26FD1 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		892D8400224E2BB00019FFE6 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		89311718223FAC7B00E362F9 /* DashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModels.swift; sourceTree = "<group>"; };
 		8944F91D223A6905008B58FF /* RxSwiftWithCoordinatorPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftWithCoordinatorPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,10 +162,6 @@
 		89A30180223B54970099A796 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		89A30184223B70AF0099A796 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		89A30189223BA7610099A796 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		89A3018B223BAE3E0099A796 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		89A3018E223BAEB30099A796 /* GithubDefaultAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubDefaultAPI.swift; sourceTree = "<group>"; };
-		89A30191223BB7FF0099A796 /* WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
-		89A30193223BBB3C0099A796 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		C5733B2358BD9AE7C558A626 /* Pods_RxSwiftWithCoordinatorPatternTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPatternTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB8C943FBD5273D777DC251 /* Pods_RxSwiftWithCoordinatorPatternUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPatternUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E966E4566A156792AF71D729 /* Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithCoordinatorPatternTests/Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +210,32 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		89228C5D22521C6800A26FD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89228C5E22521C7C00A26FD1 /* ToastView.swift */,
+				89228C6022521C8200A26FD1 /* ToastView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89228C66225228E200A26FD1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				89228C67225228E200A26FD1 /* GithubDefaultAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		89228C69225228E800A26FD1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				89228C6A225228E800A26FD1 /* WireFrame.swift */,
+				89228C6B225228E800A26FD1 /* ActivityIndicator.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		8944F914223A6905008B58FF = {
 			isa = PBXGroup;
 			children = (
@@ -225,9 +261,10 @@
 		8944F91F223A6905008B58FF /* RxSwiftWithCoordinatorPattern */ = {
 			isa = PBXGroup;
 			children = (
+				89228C69225228E800A26FD1 /* Service */,
+				89228C66225228E200A26FD1 /* API */,
+				89228C5D22521C6800A26FD1 /* Views */,
 				89902563224B6DB300D0412E /* RxDataSources */,
-				89A30190223BB7EE0099A796 /* Service */,
-				89A3018D223BAE970099A796 /* API */,
 				89A30188223BA71F0099A796 /* SignUp */,
 				89A30187223BA7190099A796 /* Login */,
 				89A30186223BA7100099A796 /* Dashboard */,
@@ -238,7 +275,9 @@
 				89A3017E223B52BA0099A796 /* Main.storyboard */,
 				8944F92C223A6907008B58FF /* Info.plist */,
 				89A30184223B70AF0099A796 /* Extensions.swift */,
-				89A3018B223BAE3E0099A796 /* Protocols.swift */,
+				89228C59225216E000A26FD1 /* Constants.swift */,
+				89228C6E2252290F00A26FD1 /* Protocols.swift */,
+				89228C5B2252190E00A26FD1 /* Tools.swift */,
 			);
 			path = RxSwiftWithCoordinatorPattern;
 			sourceTree = "<group>";
@@ -370,25 +409,9 @@
 			children = (
 				8944F957223A6A54008B58FF /* SignUpViewController.swift */,
 				89A30180223B54970099A796 /* SignUpCoordinator.swift */,
+				89228C55225209AC00A26FD1 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
-			sourceTree = "<group>";
-		};
-		89A3018D223BAE970099A796 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				89A3018E223BAEB30099A796 /* GithubDefaultAPI.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		89A30190223BB7EE0099A796 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				89A30191223BB7FF0099A796 /* WireFrame.swift */,
-				89A30193223BBB3C0099A796 /* ActivityIndicator.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		93D023757B8E251E848D8CD2 /* Frameworks */ = {
@@ -511,6 +534,7 @@
 			files = (
 				89902596224B6DB400D0412E /* README.md in Resources */,
 				897BBB6D224CCFE200649A4D /* DashboardEventTableViewCell.xib in Resources */,
+				89228C6122521C8200A26FD1 /* ToastView.xib in Resources */,
 				89A3017F223B52BA0099A796 /* Main.storyboard in Resources */,
 				8944F92B223A6907008B58FF /* LaunchScreen.storyboard in Resources */,
 				897BBB69224CCECC00649A4D /* DashboardUserTableViewCell.xib in Resources */,
@@ -637,6 +661,8 @@
 				8990258E224B6DB400D0412E /* Deprecated.swift in Sources */,
 				89902591224B6DB400D0412E /* IntegerType+IdentifiableType.swift in Sources */,
 				8944F956223A6A49008B58FF /* LoginViewController.swift in Sources */,
+				89228C68225228E200A26FD1 /* GithubDefaultAPI.swift in Sources */,
+				89228C6C225228E800A26FD1 /* WireFrame.swift in Sources */,
 				89A3017B223B4EA30099A796 /* DashboardCoordinator.swift in Sources */,
 				8944F958223A6A54008B58FF /* SignUpViewController.swift in Sources */,
 				8944F94F223A6968008B58FF /* Coordinator.swift in Sources */,
@@ -647,12 +673,14 @@
 				8944F951223A698A008B58FF /* BaseViewController.swift in Sources */,
 				89902588224B6DB400D0412E /* FloatingPointType+IdentifiableType.swift in Sources */,
 				8990258A224B6DB400D0412E /* RxCollectionViewSectionedReloadDataSource.swift in Sources */,
-				89A3018F223BAEB30099A796 /* GithubDefaultAPI.swift in Sources */,
+				89228C6F2252290F00A26FD1 /* Protocols.swift in Sources */,
 				8990259C224B6DB400D0412E /* AnimatableSectionModel.swift in Sources */,
+				89228C6D225228E800A26FD1 /* ActivityIndicator.swift in Sources */,
 				899025A3224B6DB400D0412E /* AnimatableSectionModelType.swift in Sources */,
 				8990259D224B6DB400D0412E /* IdentifiableValue.swift in Sources */,
 				899025A0224B6DB400D0412E /* AnimatableSectionModelType+ItemPath.swift in Sources */,
 				89902594224B6DB400D0412E /* TableViewSectionedDataSource.swift in Sources */,
+				89228C5C2252190E00A26FD1 /* Tools.swift in Sources */,
 				89A30176223B4E460099A796 /* AppCoordinator.swift in Sources */,
 				8990258B224B6DB400D0412E /* DataSources.swift in Sources */,
 				8990259F224B6DB400D0412E /* Optional+Extensions.swift in Sources */,
@@ -667,9 +695,8 @@
 				897BBB6C224CCFE200649A4D /* DashboardEventTableViewCell.swift in Sources */,
 				89902589224B6DB400D0412E /* RxTableViewSectionedAnimatedDataSource.swift in Sources */,
 				89A3018A223BA7610099A796 /* LoginViewModel.swift in Sources */,
-				89A30192223BB7FF0099A796 /* WireFrame.swift in Sources */,
-				89A3018C223BAE3E0099A796 /* Protocols.swift in Sources */,
-				89A30194223BBB3C0099A796 /* ActivityIndicator.swift in Sources */,
+				89228C5F22521C7C00A26FD1 /* ToastView.swift in Sources */,
+				89228C56225209AC00A26FD1 /* SignUpViewModel.swift in Sources */,
 				8990258D224B6DB400D0412E /* RxPickerViewAdapter.swift in Sources */,
 				89902586224B6DB400D0412E /* Array+Extensions.swift in Sources */,
 				897BBB68224CCECC00649A4D /* DashboardUserTableViewCell.swift in Sources */,
@@ -679,6 +706,7 @@
 				89A30185223B70AF0099A796 /* Extensions.swift in Sources */,
 				8990259E224B6DB400D0412E /* ItemPath.swift in Sources */,
 				899025A1224B6DB400D0412E /* Changeset.swift in Sources */,
+				89228C5A225216E000A26FD1 /* Constants.swift in Sources */,
 				89902598224B6DB400D0412E /* Utilities.swift in Sources */,
 				8944F921223A6905008B58FF /* AppDelegate.swift in Sources */,
 			);
