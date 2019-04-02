@@ -1,21 +1,70 @@
 import Foundation
 import RxSwift
+import RxCocoa
 
 class SignUpViewModel {
 
-    func signUp(account: String?, password: String?) -> Single<String> {
-        guard let account = account, !account.isEmpty,
-            let password = password, !password.isEmpty else {
-            return Single<String>.create(subscribe: { (single) -> Disposable in
-                single(.error(NSError.error(message: "Account or password can't be empty!")))
-                return Disposables.create()
-            })
+    let signUpEnabled: Driver<Bool>
+
+    let signedUp: Driver<Bool>
+
+    let signingUp: Driver<Bool>
+
+    init(input: (
+        username: Driver<String>,
+        password: Driver<String>,
+        signUpTaps: Signal<()>
+        ),
+         dependency: (
+        API: GitHubAPI,
+        validationService: GitHubValidationService,
+        wireframe: Wireframe
+        )
+        ) {
+
+        let API = dependency.API
+        let validationService = dependency.validationService
+        let wireframe = dependency.wireframe
+
+        let validatedUsername = input.username.flatMapLatest { (username) in
+            return validationService.validateUsername(username).asDriver(onErrorJustReturn: .failed(message: "Error contacting server"))
         }
-        return Single<String>.create(subscribe: { (single) -> Disposable in
-            Bool.random()
-                ? single(.success("Sign Up Succeeded!"))
-                : single(.error(NSError.error(message: "Sign Up Failed!")))
-            return Disposables.create()
-        }).delay(2, scheduler: ConcurrentDispatchQueueScheduler(qos: .default))
+        let validatePassword = input.password.map { (password) in
+            return validationService.validatePassword(password)
+        }
+
+        let signingUp = ActivityIndicator()
+        self.signingUp = signingUp.asDriver()
+
+        let usernameAndPassword = Driver.combineLatest(input.username, input.password) { (username: $0, password: $1) }
+
+        signedUp = input.signUpTaps.withLatestFrom(usernameAndPassword)
+            .flatMapLatest { pair in
+                return API.signup(pair.username, password: pair.password)
+                    .trackActivity(signingUp)
+                    .asDriver(onErrorJustReturn: false)
+            }
+            .flatMapLatest { signedUp -> Driver<Bool> in
+                let message = signedUp ? "Mock: Signed up to GitHub." : "Mock: Sign up to GitHub failed"
+                return wireframe.promptFor(message, cancelAction: "OK", actions: [])
+                    // propagate original value
+                    .map { _ in
+                        signedUp
+                    }
+                    .asDriver(onErrorJustReturn: false)
+        }
+
+
+        signUpEnabled = Driver.combineLatest(
+            validatedUsername,
+            validatePassword,
+            signingUp
+        )   { username, password, signingUp in
+            username.isValid &&
+                password.isValid &&
+                !signingUp
+            }
+            .distinctUntilChanged()
+
     }
 }

@@ -4,7 +4,11 @@ class DashboardModel {}
 
 class DashboardUserModel: DashboardModel {
 
-    enum Gender: String {
+    enum Gender: String, CustomStringConvertible {
+        var description: String {
+            return rawValue
+        }
+
         case male
         case female
 
@@ -30,7 +34,11 @@ class DashboardUserModel: DashboardModel {
     }
 }
 
-enum EventPriority: String {
+enum EventPriority: String, CustomStringConvertible {
+    var description: String {
+        return rawValue
+    }
+
     case low
     case normal
     case high

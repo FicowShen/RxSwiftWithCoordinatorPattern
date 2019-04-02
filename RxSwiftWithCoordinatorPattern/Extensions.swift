@@ -69,6 +69,10 @@ extension UIControl {
     }
 }
 
+extension UITableViewCell {
+    static var ID: String { return String.init(describing: self) }
+}
+
 extension Reactive where Base: UIControl {
 
     public var isEnabledStyle: Binder<Bool> {

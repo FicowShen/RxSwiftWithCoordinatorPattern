@@ -10,6 +10,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Dashboard Detail View Controller-->
+        <scene sceneID="T4O-D8-lmV">
+            <objects>
+                <viewController storyboardIdentifier="DashboardDetailViewController" id="lA9-MH-oZf" customClass="DashboardDetailViewController" customModule="RxSwiftWithCoordinatorPattern" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fwc-82-oyL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R5e-ht-a1v">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g5p-MI-aTO" firstAttribute="trailing" secondItem="R5e-ht-a1v" secondAttribute="trailing" id="5Ju-hW-Uq6"/>
+                            <constraint firstItem="R5e-ht-a1v" firstAttribute="top" secondItem="g5p-MI-aTO" secondAttribute="top" id="G40-Sx-fjv"/>
+                            <constraint firstItem="g5p-MI-aTO" firstAttribute="bottom" secondItem="R5e-ht-a1v" secondAttribute="bottom" id="IWf-pg-Rqd"/>
+                            <constraint firstItem="R5e-ht-a1v" firstAttribute="leading" secondItem="g5p-MI-aTO" secondAttribute="leading" id="xb5-7X-zmb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g5p-MI-aTO"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="R5e-ht-a1v" id="ySE-jX-yF7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O7s-7N-M8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-954" y="-243"/>
+        </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="O9a-rq-tPx">
             <objects>

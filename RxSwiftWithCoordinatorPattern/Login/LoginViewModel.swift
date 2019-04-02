@@ -7,7 +7,7 @@ class LoginViewModel {
     let validatedPassword: Driver<ValidationResult>
 
     // Is signup button enabled
-    let signupEnabled: Driver<Bool>
+    let signinEnabled: Driver<Bool>
 
     // Has user signed in
     let signedIn: Driver<Bool>
@@ -81,7 +81,7 @@ class LoginViewModel {
         }
 
 
-        signupEnabled = Driver.combineLatest(
+        signinEnabled = Driver.combineLatest(
             validatedUsername,
             validatedPassword,
             signingIn

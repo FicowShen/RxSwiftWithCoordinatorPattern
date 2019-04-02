@@ -17,40 +17,44 @@ class SignUpViewController: BaseViewController {
 
     let showLoginPage = PublishSubject<Void>()
 
-    private let viewModel = SignUpViewModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let viewModel = SignUpViewModel(
+            input: (
+                username: accountInput.rx.text.orEmpty.asDriver(),
+                password: passwordInput.rx.text.orEmpty.asDriver(),
+                signUpTaps: signUpButton.rx.tap.asSignal()
+            ),
+            dependency: (
+                API: GitHubDefaultAPI.sharedAPI,
+                validationService: GitHubDefaultValidationService.sharedValidationService,
+                wireframe: DefaultWireframe.shared
+            )
+        )
 
         showLoginPageButton.rx.tap
             .subscribe { [weak self] _ in
                 self?.showLoginPage.onCompleted()
-            }
-            .disposed(by: disposeBag)
-        signUpButton.rx.tap
-            .subscribe { [weak self] _ in
-                self?.signUp()
-            }
-            .disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
 
-        let usernameValid = accountInput.rx.text.orEmpty
-            .map { $0.count >= MinimumLength.account }
-            .share(replay: 1) // without this map would be executed once for each binding, rx is stateless by default
+        viewModel.signUpEnabled
+            .drive(onNext: { [weak self] valid  in
+                self?.signUpButton.isEnabledStyle = valid
+            }).disposed(by: disposeBag)
 
-        let passwordValid = passwordInput.rx.text.orEmpty
-            .map { $0.count >= MinimumLength.password }
-            .share(replay: 1)
+        viewModel.signingUp
+            .drive(onNext: { signingUp  in
+                signingUp
+                    ? ToastView.shared.show()
+                    : ToastView.shared.hide()
+            }).disposed(by: disposeBag)
 
-        let everythingValid = Observable.combineLatest(usernameValid, passwordValid) { $0 && $1 }
-            .share(replay: 1)
-
-        usernameValid
-            .bind(to: passwordInput.rx.isEnabled)
-            .disposed(by: disposeBag)
-
-        everythingValid
-            .bind(to: signUpButton.rx.isEnabledStyle)
-            .disposed(by: disposeBag)
+        viewModel.signedUp
+            .drive(onNext: { [weak self] signedUp  in
+                guard signedUp else { return }
+                self?.showLoginPage.onCompleted()
+            }).disposed(by: disposeBag)
 
         let tapBackground = UITapGestureRecognizer()
         tapBackground.rx.event
@@ -59,24 +63,6 @@ class SignUpViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         view.addGestureRecognizer(tapBackground)
-    }
-
-    private func signUp() {
-        ToastView.shared.show()
-
-        viewModel.signUp(account: accountInput.text, password: passwordInput.text)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
-            .observeOn(MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] (message) in
-                ToastView.shared.hide()
-                UIViewController.showAlert(msg: message)
-                delay(seconds: TimeInterval(Constants.AlertDisplayDuration), block: {
-                    self?.showLoginPage.onCompleted()
-                })
-            }) { (error) in
-                ToastView.shared.hide()
-                UIViewController.showAlert(msg: error.localizedDescription)
-        }.disposed(by: disposeBag)
     }
 
 }

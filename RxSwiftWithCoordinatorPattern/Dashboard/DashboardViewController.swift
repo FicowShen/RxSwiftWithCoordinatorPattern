@@ -8,11 +8,15 @@ class DashboardViewController: BaseViewController, UITableViewDelegate {
     @IBOutlet weak var logoutButton: UIButton!
 
     let showLoginPage = PublishSubject<Void>()
+    let showDetailPage = PublishSubject<DashboardModel>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Dashboard"
+
+        logoutButton.layer.cornerRadius = 4
+        logoutButton.layer.masksToBounds = true
 
         tableView.tableFooterView = UIView()
 
@@ -33,8 +37,9 @@ class DashboardViewController: BaseViewController, UITableViewDelegate {
             .map { indexPath in
                 return (indexPath, dataSource[indexPath])
             }
-            .subscribe(onNext: { pair in
-                DefaultWireframe.presentAlert("Tapped `\(pair.1)` @ \(pair.0)")
+            .subscribe(onNext: { [weak self] pair in
+                self?.tableView.deselectRow(at: pair.0, animated: true)
+                self?.showDetailPage.onNext(pair.1)
             })
             .disposed(by: disposeBag)
 

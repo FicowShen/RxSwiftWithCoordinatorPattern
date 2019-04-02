@@ -40,17 +40,24 @@ class LoginViewController: BaseViewController {
             )
         )
 
-        viewModel.signupEnabled
+        viewModel.signinEnabled
             .drive(onNext: { [weak self] valid  in
-                self?.signInButton.isEnabled = valid
-                self?.signInButton.alpha = valid ? 1.0 : 0.5
+                self?.signInButton.isEnabledStyle = valid
             })
             .disposed(by: disposeBag)
 
+        viewModel.signingIn
+            .drive(onNext: { signingIn  in
+                signingIn
+                    ? ToastView.shared.show()
+                    : ToastView.shared.hide()
+            }).disposed(by: disposeBag)
+
         viewModel.signedIn
             .drive(onNext: { [weak self] signedIn in
-                print("User signed in \(signedIn)")
-                self?.showDashboard.onCompleted()
+                if signedIn {
+                    self?.showDashboard.onCompleted()
+                }
             })
             .disposed(by: disposeBag)
 
@@ -61,7 +68,6 @@ class LoginViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         view.addGestureRecognizer(tapBackground)
-
     }
 
     override func viewWillAppear(_ animated: Bool) {

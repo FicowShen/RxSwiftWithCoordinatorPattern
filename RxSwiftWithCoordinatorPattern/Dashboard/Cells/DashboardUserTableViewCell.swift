@@ -1,16 +1,4 @@
-//
-//  DashboardUserTableViewCell.swift
-//  RxSwiftWithCoordinatorPattern
-//
-//  Created by fshen on 2019/3/28.
-//  Copyright © 2019 fshen. All rights reserved.
-//
-
 import UIKit
-
-extension UITableViewCell {
-    static var ID: String { return String.init(describing: self) }
-}
 
 class DashboardUserTableViewCell: UITableViewCell {
 

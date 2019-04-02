@@ -69,6 +69,11 @@
 		89A30181223B54970099A796 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30180223B54970099A796 /* SignUpCoordinator.swift */; };
 		89A30185223B70AF0099A796 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30184223B70AF0099A796 /* Extensions.swift */; };
 		89A3018A223BA7610099A796 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A30189223BA7610099A796 /* LoginViewModel.swift */; };
+		89AA2EC322534E2F00F554E9 /* DashboardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA2EC222534E2F00F554E9 /* DashboardDetailViewController.swift */; };
+		89AA2EC522534EE000F554E9 /* DashboardDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA2EC422534EE000F554E9 /* DashboardDetailCoordinator.swift */; };
+		89AA2EC92253567300F554E9 /* DashboardDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA2EC72253567300F554E9 /* DashboardDetailTableViewCell.swift */; };
+		89AA2ECA2253567300F554E9 /* DashboardDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89AA2EC82253567300F554E9 /* DashboardDetailTableViewCell.xib */; };
+		89AA2ECD22536DA800F554E9 /* DashboardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA2ECC22536DA800F554E9 /* DashboardDetailViewModel.swift */; };
 		C680D8ACCB0103034C8B2C59 /* Pods_RxSwiftWithCoordinatorPatternTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5733B2358BD9AE7C558A626 /* Pods_RxSwiftWithCoordinatorPatternTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +167,11 @@
 		89A30180223B54970099A796 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		89A30184223B70AF0099A796 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		89A30189223BA7610099A796 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		89AA2EC222534E2F00F554E9 /* DashboardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailViewController.swift; sourceTree = "<group>"; };
+		89AA2EC422534EE000F554E9 /* DashboardDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailCoordinator.swift; sourceTree = "<group>"; };
+		89AA2EC72253567300F554E9 /* DashboardDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailTableViewCell.swift; sourceTree = "<group>"; };
+		89AA2EC82253567300F554E9 /* DashboardDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardDetailTableViewCell.xib; sourceTree = "<group>"; };
+		89AA2ECC22536DA800F554E9 /* DashboardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDetailViewModel.swift; sourceTree = "<group>"; };
 		C5733B2358BD9AE7C558A626 /* Pods_RxSwiftWithCoordinatorPatternTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPatternTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB8C943FBD5273D777DC251 /* Pods_RxSwiftWithCoordinatorPatternUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithCoordinatorPatternUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E966E4566A156792AF71D729 /* Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithCoordinatorPatternTests/Pods-RxSwiftWithCoordinatorPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -268,6 +278,7 @@
 				89A30188223BA71F0099A796 /* SignUp */,
 				89A30187223BA7190099A796 /* Login */,
 				89A30186223BA7100099A796 /* Dashboard */,
+				89AA2EC122534E1300F554E9 /* DashboardDetail */,
 				89A30177223B4E6C0099A796 /* Coordinators */,
 				8944F952223A699F008B58FF /* Supporting Files */,
 				8944F950223A698A008B58FF /* BaseViewController.swift */,
@@ -414,6 +425,26 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		89AA2EC122534E1300F554E9 /* DashboardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				89AA2EC62253565D00F554E9 /* Cells */,
+				89AA2EC222534E2F00F554E9 /* DashboardDetailViewController.swift */,
+				89AA2EC422534EE000F554E9 /* DashboardDetailCoordinator.swift */,
+				89AA2ECC22536DA800F554E9 /* DashboardDetailViewModel.swift */,
+			);
+			path = DashboardDetail;
+			sourceTree = "<group>";
+		};
+		89AA2EC62253565D00F554E9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				89AA2EC72253567300F554E9 /* DashboardDetailTableViewCell.swift */,
+				89AA2EC82253567300F554E9 /* DashboardDetailTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		93D023757B8E251E848D8CD2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +569,7 @@
 				89A3017F223B52BA0099A796 /* Main.storyboard in Resources */,
 				8944F92B223A6907008B58FF /* LaunchScreen.storyboard in Resources */,
 				897BBB69224CCECC00649A4D /* DashboardUserTableViewCell.xib in Resources */,
+				89AA2ECA2253567300F554E9 /* DashboardDetailTableViewCell.xib in Resources */,
 				8944F928223A6907008B58FF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,6 +690,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AA2EC522534EE000F554E9 /* DashboardDetailCoordinator.swift in Sources */,
+				89AA2EC322534E2F00F554E9 /* DashboardDetailViewController.swift in Sources */,
 				8990258E224B6DB400D0412E /* Deprecated.swift in Sources */,
 				89902591224B6DB400D0412E /* IntegerType+IdentifiableType.swift in Sources */,
 				8944F956223A6A49008B58FF /* LoginViewController.swift in Sources */,
@@ -668,6 +702,7 @@
 				8944F94F223A6968008B58FF /* Coordinator.swift in Sources */,
 				8990259B224B6DB400D0412E /* Diff.swift in Sources */,
 				89902597224B6DB400D0412E /* SectionModelType.swift in Sources */,
+				89AA2ECD22536DA800F554E9 /* DashboardDetailViewModel.swift in Sources */,
 				89902593224B6DB400D0412E /* RxCollectionViewSectionedAnimatedDataSource.swift in Sources */,
 				89902587224B6DB400D0412E /* AnimationConfiguration.swift in Sources */,
 				8944F951223A698A008B58FF /* BaseViewController.swift in Sources */,
@@ -703,6 +738,7 @@
 				89311719223FAC7B00E362F9 /* DashboardModels.swift in Sources */,
 				89A30179223B4E840099A796 /* LoginCoordinator.swift in Sources */,
 				8990258C224B6DB400D0412E /* String+IdentifiableType.swift in Sources */,
+				89AA2EC92253567300F554E9 /* DashboardDetailTableViewCell.swift in Sources */,
 				89A30185223B70AF0099A796 /* Extensions.swift in Sources */,
 				8990259E224B6DB400D0412E /* ItemPath.swift in Sources */,
 				899025A1224B6DB400D0412E /* Changeset.swift in Sources */,
