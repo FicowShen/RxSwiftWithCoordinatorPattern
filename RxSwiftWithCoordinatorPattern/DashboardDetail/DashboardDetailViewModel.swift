@@ -4,12 +4,30 @@ import RxCocoa
 
 class DashboardDetailViewModel {
 
+    private let model: DashboardModel
     let modelDescription: Driver<String>
     let items: BehaviorSubject<[(key: String, value: CustomStringConvertible)]>
 
     private var rawItems: [(key: String, value: CustomStringConvertible)]
 
+    var updatedModel: DashboardModel? {
+        switch model {
+        case is DashboardUserModel:
+            guard let gender = DashboardUserModel.Gender(rawValue: rawItems[2].value.description) else { return nil }
+            return DashboardUserModel(firstName: rawItems[0].value.description, lastName: rawItems[1].value.description, gender: gender)
+        case let newModel as DashboardEventModel:
+            guard let priority = EventPriority(rawValue: rawItems[2].value.description) else { return nil }
+            return DashboardEventModel(name: rawItems[0].value.description, time: rawItems[1].value.description, priority: priority, id: newModel.id)
+        default:
+            break
+        }
+        assertionFailure()
+        return nil
+    }
+
     init(model: DashboardModel) {
+        self.model = model
+
         switch model {
         case let user as DashboardUserModel:
             modelDescription = Observable

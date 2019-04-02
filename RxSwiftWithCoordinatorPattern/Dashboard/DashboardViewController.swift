@@ -10,6 +10,8 @@ class DashboardViewController: BaseViewController, UITableViewDelegate {
     let showLoginPage = PublishSubject<Void>()
     let showDetailPage = PublishSubject<DashboardModel>()
 
+    private var viewModel: DashboardViewModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +28,8 @@ class DashboardViewController: BaseViewController, UITableViewDelegate {
                            forCellReuseIdentifier: DashboardEventTableViewCell.ID)
 
         let viewModel = DashboardViewModel()
+        self.viewModel = viewModel
+        
         let dataSource = viewModel.dataSource
 
         viewModel.items

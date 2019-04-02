@@ -39,10 +39,16 @@ class DashboardDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         view.addGestureRecognizer(tapBackground)
 
+        showDashboard.subscribe { (_) in
+            guard let updatedModel = viewModel.updatedModel else { return }
+            let userInfo: [AnyHashable : Any] = [String(describing: DashboardModel.self) : updatedModel]
+            NotificationCenter.default.post(name: DashboardModel.NotificationName.modelUpdated, object: nil, userInfo: userInfo)
+        }.disposed(by: disposeBag)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+
         showDashboard.onCompleted()
     }
 

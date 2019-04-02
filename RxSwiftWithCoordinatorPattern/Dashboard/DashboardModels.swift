@@ -1,6 +1,10 @@
 import UIKit
 
-class DashboardModel {}
+class DashboardModel {
+    struct NotificationName {
+        static let modelUpdated = Notification.Name(rawValue: "DashboardModelNotificationName_modelUpdated")
+    }
+}
 
 class DashboardUserModel: DashboardModel {
 
@@ -56,10 +60,12 @@ enum EventPriority: String, CustomStringConvertible {
 }
 
 class DashboardEventModel: DashboardModel {
+    let id: String
     let name: String
     let time: String
     let priority: EventPriority
-    init(name: String, time: String, priority: EventPriority) {
+    init(name: String, time: String, priority: EventPriority, id: String = UUID().uuidString) {
+        self.id = id
         self.name = name
         self.time = time
         self.priority = priority
