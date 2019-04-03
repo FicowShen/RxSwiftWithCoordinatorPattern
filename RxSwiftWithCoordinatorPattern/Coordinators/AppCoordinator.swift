@@ -26,6 +26,7 @@ final class AppCoordinator: RootViewCoordinator {
         let coordinator = LoginCoordinator(presenter: navigationController)
         coordinator.showDashboard.subscribe { [weak self] in
             self?.showDashboard()
+            self?.childCoordinators.removeAll()
         }.disposed(by: disposeBag)
 
         window.rootViewController = rootViewController
@@ -35,7 +36,6 @@ final class AppCoordinator: RootViewCoordinator {
     }
 
     func showDashboard() {
-        childCoordinators.removeAll()
         let coordinator = DashboardCoordinator(presenter: navigationController)
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
