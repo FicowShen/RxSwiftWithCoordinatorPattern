@@ -16,8 +16,8 @@ class DashboardDetailViewModel {
             guard let gender = DashboardUserModel.Gender(rawValue: rawItems[2].value.description) else { return nil }
             return DashboardUserModel(firstName: rawItems[0].value.description, lastName: rawItems[1].value.description, gender: gender)
         case let newModel as DashboardEventModel:
-            guard let priority = EventPriority(rawValue: rawItems[2].value.description) else { return nil }
-            return DashboardEventModel(name: rawItems[0].value.description, time: rawItems[1].value.description, priority: priority, id: newModel.id)
+            guard let priority = EventPriority(rawValue: rawItems[1].value.description) else { return nil }
+            return DashboardEventModel(name: rawItems[0].value.description, time: rawItems[2].value.description, priority: priority, id: newModel.id)
         default:
             break
         }
