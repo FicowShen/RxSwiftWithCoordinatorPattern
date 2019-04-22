@@ -34,6 +34,7 @@
 		897BBB69224CCECC00649A4D /* DashboardUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 897BBB67224CCECC00649A4D /* DashboardUserTableViewCell.xib */; };
 		897BBB6C224CCFE200649A4D /* DashboardEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BBB6A224CCFE200649A4D /* DashboardEventTableViewCell.swift */; };
 		897BBB6D224CCFE200649A4D /* DashboardEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 897BBB6B224CCFE200649A4D /* DashboardEventTableViewCell.xib */; };
+		898226C7226DD09D00EF9149 /* SayHelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898226C6226DD09D00EF9149 /* SayHelloView.swift */; };
 		89902586224B6DB400D0412E /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89902565224B6DB300D0412E /* Array+Extensions.swift */; };
 		89902587224B6DB400D0412E /* AnimationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89902566224B6DB300D0412E /* AnimationConfiguration.swift */; };
 		89902588224B6DB400D0412E /* FloatingPointType+IdentifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89902567224B6DB300D0412E /* FloatingPointType+IdentifiableType.swift */; };
@@ -130,6 +131,7 @@
 		897BBB67224CCECC00649A4D /* DashboardUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardUserTableViewCell.xib; sourceTree = "<group>"; };
 		897BBB6A224CCFE200649A4D /* DashboardEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventTableViewCell.swift; sourceTree = "<group>"; };
 		897BBB6B224CCFE200649A4D /* DashboardEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardEventTableViewCell.xib; sourceTree = "<group>"; };
+		898226C6226DD09D00EF9149 /* SayHelloView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SayHelloView.swift; sourceTree = "<group>"; };
 		89902565224B6DB300D0412E /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		89902566224B6DB300D0412E /* AnimationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationConfiguration.swift; sourceTree = "<group>"; };
 		89902567224B6DB300D0412E /* FloatingPointType+IdentifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FloatingPointType+IdentifiableType.swift"; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				89A30177223B4E6C0099A796 /* Coordinators */,
 				8944F952223A699F008B58FF /* Supporting Files */,
 				8944F950223A698A008B58FF /* BaseViewController.swift */,
+				898226C6226DD09D00EF9149 /* SayHelloView.swift */,
 				8944F920223A6905008B58FF /* AppDelegate.swift */,
 				89A3017E223B52BA0099A796 /* Main.storyboard */,
 				8944F92C223A6907008B58FF /* Info.plist */,
@@ -731,6 +734,7 @@
 				89902589224B6DB400D0412E /* RxTableViewSectionedAnimatedDataSource.swift in Sources */,
 				89A3018A223BA7610099A796 /* LoginViewModel.swift in Sources */,
 				89228C5F22521C7C00A26FD1 /* ToastView.swift in Sources */,
+				898226C7226DD09D00EF9149 /* SayHelloView.swift in Sources */,
 				89228C56225209AC00A26FD1 /* SignUpViewModel.swift in Sources */,
 				8990258D224B6DB400D0412E /* RxPickerViewAdapter.swift in Sources */,
 				89902586224B6DB400D0412E /* Array+Extensions.swift in Sources */,
