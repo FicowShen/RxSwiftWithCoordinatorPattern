@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class LoginCoordinator: RootViewCoordinator {
     var rootViewController: UIViewController {
@@ -8,7 +9,10 @@ final class LoginCoordinator: RootViewCoordinator {
 
     var childCoordinators: [Coordinator] = []
 
-    let showDashboard = PublishSubject<Void>()
+    private let showDashboardSubject = PublishSubject<Void>()
+    var showDashboard: Driver<Void> {
+        return showDashboardSubject.asDriverOnErrorJustComplete()
+    }
 
     private let presenter: UINavigationController
     private var loginPresenter: UINavigationController!
@@ -35,14 +39,14 @@ final class LoginCoordinator: RootViewCoordinator {
         self.loginPresenter.dismiss(animated: true, completion: nil)
         loginPresenter = nil
         childCoordinators.removeAll()
-        showDashboard.onCompleted()
+        showDashboardSubject.onNext(())
     }
 
     private func showSignUpPage() {
         let coordinator = SignUpCoordinator(presenter: self.loginPresenter)
-        coordinator.showLoginPage.subscribe { [weak self] in
+        coordinator.showLoginPage.drive(onNext: { [weak self] _ in
             self?.showLoginPage()
-            }.disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         self.childCoordinators.append(coordinator)
         coordinator.start()
     }

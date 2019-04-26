@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class SignUpCoordinator: RootViewCoordinator {
 
@@ -9,7 +10,10 @@ final class SignUpCoordinator: RootViewCoordinator {
 
     var childCoordinators: [Coordinator] = []
 
-    let showLoginPage = PublishSubject<Void>()
+    private let showLoginPageSubject = PublishSubject<Void>()
+    var showLoginPage: Driver<Void> {
+        return showLoginPageSubject.asDriverOnErrorJustComplete()
+    }
 
     private let presenter: UINavigationController
     private let disposeBag = DisposeBag()
@@ -21,7 +25,7 @@ final class SignUpCoordinator: RootViewCoordinator {
     func start() {
         let signUpPage = SignUpViewController.loadFromMainStoryboard() as! SignUpViewController
         signUpPage.showLoginPage.subscribe { [weak self] in
-            self?.showLoginPage.onCompleted()
+            self?.showLoginPageSubject.onNext(())
             }.disposed(by: disposeBag)
         presenter.pushViewController(signUpPage, animated: true)
     }

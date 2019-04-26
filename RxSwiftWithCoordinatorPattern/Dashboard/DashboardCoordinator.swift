@@ -39,18 +39,18 @@ final class DashboardCoordinator: RootViewCoordinator {
 
     private func showLoginPage() {
         let coordinator = LoginCoordinator(presenter: presenter)
-        coordinator.showDashboard.subscribe { [weak self] _ in
+        coordinator.showDashboard.drive(onNext: { [weak self] _ in
             self?.goBackToDashboard()
-            }.disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         coordinator.start()
         childCoordinators.append(coordinator)
     }
 
     private func showDetailPage(dashboardModel: DashboardModel) {
         let coordinator = DashboardDetailCoordinator(dashboardModel: dashboardModel, presenter: presenter)
-        coordinator.showDashboard.subscribe { [weak self] _ in
+        coordinator.showDashboard.drive(onNext: { [weak self] _ in
             self?.goBackToDashboard()
-            }.disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         coordinator.start()
         childCoordinators.append(coordinator)
     }

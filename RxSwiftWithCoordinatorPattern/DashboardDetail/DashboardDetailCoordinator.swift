@@ -1,5 +1,6 @@
 import Foundation
 import RxSwift
+import RxCocoa
 
 final class DashboardDetailCoordinator: RootViewCoordinator {
     var childCoordinators: [Coordinator] = []
@@ -8,7 +9,10 @@ final class DashboardDetailCoordinator: RootViewCoordinator {
         return presenter
     }
 
-    let showDashboard = PublishSubject<Void>()
+    private let showDashboardSubject = PublishSubject<Void>()
+    var showDashboard: Driver<Void> {
+        return showDashboardSubject.asDriverOnErrorJustComplete()
+    }
 
     private let presenter: UINavigationController
     private let dashboardModel: DashboardModel
@@ -30,6 +34,6 @@ final class DashboardDetailCoordinator: RootViewCoordinator {
 
     private func showDashboardPage() {
         presenter.popViewController(animated: true)
-        showDashboard.onCompleted()
+        showDashboardSubject.onNext(())
     }
 }

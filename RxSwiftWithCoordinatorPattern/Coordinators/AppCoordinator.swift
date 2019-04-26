@@ -24,10 +24,10 @@ final class AppCoordinator: RootViewCoordinator {
 
     func showLoginPage() {
         let coordinator = LoginCoordinator(presenter: navigationController)
-        coordinator.showDashboard.subscribe { [weak self] in
+        coordinator.showDashboard.drive(onNext: { [weak self] _ in
             self?.showDashboard()
             self?.childCoordinators.removeAll()
-        }.disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
 
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
